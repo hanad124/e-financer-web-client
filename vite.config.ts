@@ -9,4 +9,8 @@ export default defineConfig({
       "@": path.resolve(__dirname, "./src"),
     },
   },
+  server: {
+    port: process.env.PORT ? parseInt(process.env.PORT) : 3000,
+    host: true, // This will bind to 0.0.0.0 to make it accessible from outside the container
+  },
 });
