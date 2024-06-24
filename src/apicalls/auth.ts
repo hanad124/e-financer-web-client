@@ -2,7 +2,14 @@ import { axiosInstance } from ".";
 
 export const verifyemail = async (payload: any) => {
   try {
-    const response = await axiosInstance.post("/auth/verifyemail", payload);
+    const response = await axiosInstance.post("/auth/verifyemail", payload, {
+      headers: {
+        "Content-Type": "application/json",
+        "Cache-Control": "no-cache",
+        Pragma: "no-cache",
+      },
+    });
+
     console.log("response.data: ", response.data);
     return response.data;
   } catch (error: any) {
